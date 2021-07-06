@@ -1,6 +1,14 @@
 # packages.r
 
 library(tidyverse)
+library(ggridges)
+library(HDInterval)
+library(coda)
+library(mvtnorm)
+library(loo)
+library(dagitty)
+
+devtools::install_github("rmcelreath/rethinking")
 
 '%ni%' <- Negate('%in%')
 
