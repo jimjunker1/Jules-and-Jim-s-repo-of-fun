@@ -9,6 +9,8 @@ MLB_full = MLB_files[[1]] %>%
   dplyr::mutate(across(matches('perc'), ~as.numeric(.x)))
 
 HDInterval::hdi(MLB_full$perc_labile, credMass = 0.75)
+quantile(MLB_full$perc_labile, c(0.1,0.9))
+
 
 MLB_full%>%
   ggplot() +
