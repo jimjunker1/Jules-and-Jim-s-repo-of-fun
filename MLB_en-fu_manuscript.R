@@ -17,9 +17,9 @@ MLB_SERMACS_final = MLB_SERMACS_dfs %>%
 MLB_SERMACS_final%>%
   dplyr::filter(type == "full") %>%
   ggplot() +
-  geom_density(aes(perc_labile, ..count..), size = 1.5, fill = 'purple',  color = 'purple', alpha = 0.075) +
-  scale_x_continuous(name = "% Biolabile ", limits = c(0,100), expand = c(0.01,0.01))+
-  scale_y_continuous(name = "No. of observations", limits = c(0,5), expand = c(0.01,0.01))+
+  geom_density(aes(perc_labile, ..count..), size = 1.5, fill = 'purple',  color = 'purple', alpha = 0.2) +
+  scale_x_continuous(name = "% Biolabile ", limits = c(0,100), expand = c(0.03,0.03))+
+  scale_y_continuous(name = "No. of observations", limits = c(0,5), expand = c(0.03,0.03))+
   # geom_vline(aes(xintercept=quantile(perc_labile,0.9)), size=1.5, color='darkgreen') +
   # geom_vline(aes(xintercept=quantile(perc_labile,0.1)), size=1.5, color='darkgreen') +
   # geom_vline(aes(xintercept=mean(perc_labile)), color = "mediumblue", size=1.75, linetype='longdash') +
@@ -31,18 +31,19 @@ MLB_SERMACS_final%>%
         axis.text.y = element_text(colour="black",size=15,face="bold"),  
         axis.title.x = element_text(colour="black",size=20,face="bold"),
         axis.title.y = element_text(colour="black",size=20,face="bold")) +
-  theme(legend.text=element_text(size=12,face="bold")) +
+  theme(legend.text=element_text(size=10,face="bold")) +
   theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank()) +
-  theme(panel.background = element_blank())
+  theme(panel.background = element_blank()) -> MLB_SERMACS_full
+ggsave("./figures/MLB_SERMACS_full.svg", MLB_SERMACS_full, width = 6, height =  6, units = "in")
 
 
 # new histogram
 MLB_SERMACS_final%>%
   dplyr::filter(type == "new") %>%
   ggplot() +
-  geom_density(aes(perc_labile, ..count..), size = 1.5, fill = 'purple',  color = 'purple', alpha = 0.075) +
-  scale_x_continuous(name = "% Biolabile ", limits = c(0,100), expand = c(0.01,0.01))+
-  scale_y_continuous(name = "No. of observations", limits = c(0,5), expand = c(0.01,0.01))+
+  geom_density(aes(perc_labile, ..count..), size = 1.5, fill = 'darkgreen',  color = 'darkgreen', alpha = 0.2) +
+  scale_x_continuous(name = "% Biolabile ", limits = c(0,100), expand = c(0.03,0.03))+
+  scale_y_continuous(name = "No. of observations", limits = c(0,5), expand = c(0.03,0.03))+
   # geom_vline(aes(xintercept=quantile(perc_labile,0.9)), size=1.5, color='darkgreen') +
   # geom_vline(aes(xintercept=quantile(perc_labile,0.1)), size=1.5, color='darkgreen') +
   # geom_vline(aes(xintercept=mean(perc_labile)), color = "mediumblue", size=1.75, linetype='longdash') +
@@ -54,35 +55,37 @@ MLB_SERMACS_final%>%
         axis.text.y = element_text(colour="black",size=15,face="bold"),  
         axis.title.x = element_text(colour="black",size=20,face="bold"),
         axis.title.y = element_text(colour="black",size=20,face="bold")) +
-  theme(legend.text=element_text(size=12,face="bold")) +
+  theme(legend.text=element_text(size=10,face="bold")) +
   theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank()) +
-  theme(panel.background = element_blank())
+  theme(panel.background = element_blank()) -> MLB_SERMACS_new
+ggsave("./figures/MLB_SERMACS_new.svg", MLB_SERMACS_new, width = 6, height =  6, units = "in")
 
 # old histogram
+
 MLB_SERMACS_final%>%
   dplyr::filter(type == "old") %>%
   ggplot() +
-  geom_density(aes(perc_labile, ..count..), size = 1.5, fill = 'purple',  color = 'purple', alpha = 0.075) +
-  scale_x_continuous(name = "% Biolabile ", limits = c(0,100), expand = c(0.01,0.01))+
-  scale_y_continuous(name = "No. of observations", limits = c(0,5), expand = c(0.01,0.01))+
+  geom_density(aes(perc_labile, ..count..), size = 1.5, fill = 'orange',  color = 'orange', alpha = 0.2) +
+  scale_x_continuous(name = "% Biolabile ", limits = c(0,100), expand = c(0.03,0.03))+
+  scale_y_continuous(name = "No. of observations", limits = c(0,5), expand = c(0.03,0.03))+
   theme(axis.line.x = element_line(color = "black"), axis.line.y = element_line(color = "black")) +
   theme(panel.border = element_rect(fill=NA,color="black", size=2, linetype="solid")) +
   theme(axis.text.x = element_text(colour="black",size=15,face="bold"),
         axis.text.y = element_text(colour="black",size=15,face="bold"),  
         axis.title.x = element_text(colour="black",size=20,face="bold"),
         axis.title.y = element_text(colour="black",size=20,face="bold")) +
-  theme(legend.text=element_text(size=12,face="bold")) +
+  theme(legend.text=element_text(size=10,face="bold")) +
   theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank()) +
-  theme(panel.background = element_blank())
-
+  theme(panel.background = element_blank()) -> MLB_SERMACS_old
+ggsave("./figures/MLB_SERMACS_old.svg", MLB_SERMACS_old, width = 6, height =  6, units = "in")
 ## old and new
 
 MLB_SERMACS_final%>%
   dplyr::filter(type == "old") %>%
   ggplot() +
-  geom_density(aes(perc_labile, ..count..), size = 1.5, fill = 'purple',  color = 'purple', alpha = 0.25) +
-  scale_x_continuous(name = "% Biolabile ", limits = c(0,100), expand = c(0.01,0.01))+
-  scale_y_continuous(name = "No. of observations", limits = c(0,5), expand = c(0.01,0.01))+
+  geom_density(aes(perc_labile, ..count..), size = 1.5, fill = 'orange',  color = 'orange', alpha = 0.2) +
+  scale_x_continuous(name = "% Biolabile ", limits = c(0,100), expand = c(0.03,0.03))+
+  scale_y_continuous(name = "No. of observations", limits = c(0,5), expand = c(0.03,0.03))+
   theme(axis.line.x = element_line(color = "black"), axis.line.y = element_line(color = "black")) +
   theme(panel.border = element_rect(fill=NA,color="black", size=2, linetype="solid")) +
   theme(axis.text.x = element_text(colour="black",size=15,face="bold"),
@@ -90,11 +93,14 @@ MLB_SERMACS_final%>%
         axis.title.x = element_text(colour="black",size=20,face="bold"),
         axis.title.y = element_text(colour="black",size=20,face="bold")) +
   geom_density(data = MLB_SERMACS_final %>% dplyr::filter(type == "new"),
-               aes( perc_labile, ..count..), size = 1.5, fill = 'darkgreen', color = 'darkgreen', alpha = 0.25, inherit.aes = FALSE )+ 
-  theme(legend.text=element_text(size=12,face="bold"),
+               aes( perc_labile, ..count..), size = 1.5, fill = 'darkgreen', color = 'darkgreen', alpha = 0.2, inherit.aes = FALSE )+ 
+  theme(legend.text=element_text(size=10,face="bold"),
         panel.grid.major = element_blank(), panel.grid.minor = element_blank(),
-        panel.background = element_blank())
- ####### full figure for publication ------
+        panel.background = element_blank()) -> MLB_SERMACS_comb;MLB_SERMACS_comb
+ggsave("./figures/MLB_SERMACS_comb.svg", MLB_SERMACS_comb, width = 6, height =  6, units = "in")
+
+
+####### full figure for publication ------
 MLB_full = MLB_files[[1]] %>% 
   .[-1:-3,] %>% 
   setNames(., c("sample_name", "perc_labile","perc_recalcitrant","ecosystem")) %>%
