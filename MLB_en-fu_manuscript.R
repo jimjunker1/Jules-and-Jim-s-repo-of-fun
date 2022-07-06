@@ -3,9 +3,10 @@ source("packages.R")
 
 MLB_excel_files = list.files(path = './data/', pattern = '*.xls*', full.names = TRUE)
                          
-MLB_files = lapply(MLB_excel_files, function(x) read_excel_allsheets(x, skip = 2))
+MLB_files = lapply(MLB_excel_files, function(x) read_excel_allsheets(x, skip = 0))
 
 MLB_SERMACS_dfs = MLB_files[[2]] %>%
+  # .[c(1:2)] %>%
   setNames(., c("full", "new", "old"))
 
 MLB_SERMACS_final = MLB_SERMACS_dfs %>%
@@ -102,7 +103,7 @@ ggsave("./figures/MLB_SERMACS_comb.svg", MLB_SERMACS_comb, width = 6, height =  
 
 ####### full figure for publication ------
 MLB_full = MLB_files[[1]] %>% 
-  .[-1:-3,] %>% 
+  .[-c(1:3),] %>% 
   setNames(., c("sample_name", "perc_labile","perc_recalcitrant","ecosystem")) %>%
   dplyr::mutate(across(matches('perc'), ~as.numeric(.x)))
 

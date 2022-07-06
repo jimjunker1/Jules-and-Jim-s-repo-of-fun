@@ -8,7 +8,8 @@ library(mvtnorm)
 library(loo)
 library(dagitty)
 
-devtools::install_github("rmcelreath/rethinking")
+# devtools::install_github("rmcelreath/rethinking")
+# library(rethinking)
 
 '%ni%' <- Negate('%in%')
 
