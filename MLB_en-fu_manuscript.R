@@ -35,7 +35,7 @@ MLB_SERMACS_final%>%
   theme(legend.text=element_text(size=10,face="bold")) +
   theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank()) +
   theme(panel.background = element_blank()) -> MLB_SERMACS_full
-ggsave("./figures/MLB_SERMACS_full.svg", MLB_SERMACS_full, width = 6, height =  6, units = "in")
+ggsave("./figures/MLB_SERMACS_full.tiff", MLB_SERMACS_full, width = 6, height =  6, units = "in", dpi = 450)
 
 
 # new histogram
@@ -59,7 +59,7 @@ MLB_SERMACS_final%>%
   theme(legend.text=element_text(size=10,face="bold")) +
   theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank()) +
   theme(panel.background = element_blank()) -> MLB_SERMACS_new
-ggsave("./figures/MLB_SERMACS_new.svg", MLB_SERMACS_new, width = 6, height =  6, units = "in")
+ggsave("./figures/MLB_SERMACS_new.tiff", MLB_SERMACS_new, width = 6, height =  6, units = "in", dpi = 450)
 
 # old histogram
 
@@ -78,7 +78,7 @@ MLB_SERMACS_final%>%
   theme(legend.text=element_text(size=10,face="bold")) +
   theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank()) +
   theme(panel.background = element_blank()) -> MLB_SERMACS_old
-ggsave("./figures/MLB_SERMACS_old.svg", MLB_SERMACS_old, width = 6, height =  6, units = "in")
+ggsave("./figures/MLB_SERMACS_old.tiff", MLB_SERMACS_old, width = 6, height =  6, units = "in", dpi = 450)
 ## old and new
 
 MLB_SERMACS_final%>%
@@ -98,7 +98,7 @@ MLB_SERMACS_final%>%
   theme(legend.text=element_text(size=10,face="bold"),
         panel.grid.major = element_blank(), panel.grid.minor = element_blank(),
         panel.background = element_blank()) -> MLB_SERMACS_comb;MLB_SERMACS_comb
-ggsave("./figures/MLB_SERMACS_comb.svg", MLB_SERMACS_comb, width = 6, height =  6, units = "in")
+ggsave("./figures/MLB_SERMACS_comb.tiff", MLB_SERMACS_comb, width = 6, height =  6, units = "in", dpi = 450)
 
 
 ####### full figure for publication ------
